@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
-                  Text('Charater List'),
+                  Text('Character List'),
                   FilledButton(onPressed: (){}, child: Text('Create New'),)
                 ],
               )
