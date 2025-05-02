@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rpg/screens/home/character_card.dart';
+import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 
 
@@ -10,21 +12,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List characters = ['rasum','najuk','heer','razum','manya','ramanauj','renu'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your characters'),
+        title: const StyledTitle('Heer characters'),
         centerTitle: true,
       ),
           body: Container(
             padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  const StyledText('Character List'),
-                  const StyledHeading('Character list'),
-                  const StyledTitle('Character list'),
-                  FilledButton(onPressed: (){}, child: Text('Create New'),)
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: characters.length,
+                      itemBuilder: (_, index){
+                        return CharacterCard(characters[index]);
+                      },
+                    ),
+                  ),
+
+                  StyledButton(onPressed: (){}, child: StyledHeading('Create New'),)
                 ],
               )
           ),
